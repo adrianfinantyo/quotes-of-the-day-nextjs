@@ -17,10 +17,12 @@ import {
   MenuList,
   Hide,
   Img,
+  MenuDivider,
 } from "@chakra-ui/react";
 import { quoteType } from "../types/quote";
 import styles from "@/styles/Home.module.css";
-import { IoSunny, IoMoon, IoMenu, IoShareSocial } from "react-icons/io5";
+import { IoSunny, IoMoon, IoShareSocial } from "react-icons/io5";
+import { BsThreeDotsVertical } from "react-icons/bs";
 import { getRandomQuote } from "@/libs/utils/getQuotes";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
@@ -86,18 +88,19 @@ const Home = () => {
           <Spacer />
           <Menu autoSelect>
             <MenuButton as={Button} p={0}>
-              <Icon as={IoMenu} />
+              <Icon as={BsThreeDotsVertical} />
             </MenuButton>
             <MenuList>
-              <MenuItem as={Button}>
-                <Link href="https://kc.adrianfinantyo.com/docs/qotd">Docs</Link>
-              </MenuItem>
               <MenuItem as={Button} onClick={handleRandomQuote}>
                 Go random
               </MenuItem>
               <MenuItem as={Button} onClick={handleShareQuote} rightIcon={<Icon as={IoShareSocial} />}>
                 Share this quote
               </MenuItem>
+              <MenuItem as={Button}>
+                <Link href="https://kc.adrianfinantyo.com/docs/qotd">Docs</Link>
+              </MenuItem>
+              <MenuDivider />
               <MenuItem
                 as={Button}
                 p={0}
